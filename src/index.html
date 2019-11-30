@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -85,7 +85,6 @@
         }
 */
 
-
         .nilaiAwal{
           background-color: #aaa; 
           padding: 5px;
@@ -97,16 +96,16 @@
 
   <body>
     <article class="deck">
-      <section style="background-image: url(images/tkppl_cover.jpg);">
-        <img width="100%" height="100%" src="images/tkppl_cover.jpg" />
-      </section>
+	<section style="background-image: url(images/tkppl_cover.jpg);">
+	 	<img width="100%" height="100%" src="images/tkppl_cover.jpg" />
+	 	</section>
 
-      <section>
-        <img width="100%" height="100%" src="images/Slide1_Intro Image.png" />
-      </section>
+	<section>
+		<img width="100%" height="100%" src="images/Slide1_Intro Image.png" />
+	</section>
 
-      <section>
-        <h1>Tango</h1>
+    <section>
+    	<h1>Tango</h1>
         <img src="images/tango.png" width="200" />
         <table style="width: 300px;">
           <tr>
@@ -130,77 +129,92 @@
           </div>
         </div>
         <button id="button1" onclick="return submit(1,12900,'input1A','input1B',1)">Contest!</button>
-      </section>
+    </section>
 
-      <section>
-        <h1>Tricks</h1>
-        <img src="images/tricks.jpg" width="320" />
-      </section>
 
-      <section>
-        <h1>Burrata E Datterini</h1>
-        <img src="images/Slide7_Mewah1.jpg" width="320"/>
-	    <h3 style="text-align: center">Rp.100.000</h3>
 
-		<div>
-			<div class="slider_container">
-				<div class="player_A" style="display: inline;">Player A</div>
-				<input id="slider_mewah_A" class="player_A" type="range" min="0" max ="3000000" value="0" step="1000">
-				<div id="slider_mewah_value_A" class="slider_value player_A">0</div>
-			</div>
-		</div>
-		
 
-		<div>
-			<div class="slider_container">
-				<div class="player_B" style="display: inline;">Player B</div>
-				<input id="slider_mewah_B" class="player_B" type="range" min="0" max ="3000000" value="0" step="1000">
-				<div id="slider_mewah_value_B" class="slider_value player_B">0</div>
-			</div>
-		</div>
-		
-      </section>
+    <section>
+    	<h1>Tricks</h1>
+    	<img src="images/tricks.jpg" width="320" />
+    </section>
 
-      <section>
-        <h1>Tiramisu</h1>
-        <img src="images/Slide7_Mewah2.jpg" width="320" />
-	      <h3 style="text-align: center;">Rp.70.000</h3>
-      </section>
 
-      <section>
+	<section>
         <h1>Aqua Galon</h1>
         <img src="images/tkppl_minuman1.png" width="320"  height="175"/>
-        <p style="margin-bottom: 0;">Team A : 
-            <span id="nilaiMinumA">20000</span></p>
+        <p style="margin-bottom: 0;">
+        	Team A : <span id="nilai_sliderMinuman_A">0</span></p>
         <div>
           <span class="nilaiAwal">20.000</span>
             <div class="slidercontainer" style="display: inline-block;">
-                <input id="minumA" type="range" min="20000" max="75000" value="0" class="slider" step="1000">
+                <input id="minuman_slider_A" type="range" min="20000" max="75000" value="0" class="slider" step="1000">
             </div>
           <span class="nilaiAwal">75.000</span>
         </div>
 
-        <p style="margin-bottom: 0;">Team B : 
-            <span id="nilaiMinumB">20000</span></p>
+        <p style="margin-bottom: 0;">
+        	Team B : <span id="nilai_sliderMinuman_B">0</span></p>
         <div>
           <span class="nilaiAwal">20.000</span>
             <div class="slidercontainer" style="display: inline-block;">
-                <input id="minumB" type="range" min="20000" max="75000" value="0" class="slider" step="1000">
+                <input id="minuman_slider_B" type="range" min="20000" max="75000" value="0" class="slider" step="1000">
             </div>
           <span class="nilaiAwal">75.000</span>
         </div>
         
-        <p id="price2"></p>
-        <button id="button2" onclick="return submit(1,50000,'minumA','minumB',2)">Contest!</button>        
-      </section>
+        <p id="harga_real_minuman1"></p>
+        <button id="button_slider_minuman" onclick="return submit(1,50000,'minuman_slider_A','minuman_slider_B','button_slider_minuman','harga_real_minuman1')">Contest!</button>        
+    </section>
 
-      <section>
-        <h1>Yakult</h1>
+
+    <section>
+    	<h1>Yakult</h1>
         <img src="images/tkppl_minuman2.png" width="320" />
         <h3 style="text-align: center;">Rp.8.000</h3>
-      </section>
+    </section>
 
-      <section>
+
+    <section>
+        <h1>Burrata E Datterini</h1>
+        <img src="images/Slide7_Mewah1.jpg" width="320"/>
+
+        <p style="margin-bottom: 0;"> 
+         	Team A : <span id="nilai_sliderMewah_A">0</span>
+      	</p>
+        <div>
+          <span class="nilaiAwal">50.000</span>
+            <div class="slidercontainer" style="display: inline-block;">
+                <input id="mewah_slider_A" type="range" min="50000" max="500000" value="0" class="slider" step="5000">
+            </div>
+          <span class="nilaiAwal">500.000</span>
+        </div>
+
+        <p style="margin-bottom: 0;">
+        	Team B : <span id="nilai_sliderMewah_B">0</span></p>
+        <div>
+          <span class="nilaiAwal">50.000</span>
+            <div class="slidercontainer" style="display: inline-block;">
+                <input id="mewah_slider_B" type="range" min="50000" max="500000" value="0" class="slider" step="5000">
+            </div>
+          <span class="nilaiAwal">500.000</span>
+        </div>
+        
+        <p id="harga_real_mewah1"></p>
+        <button id="button_slider_mewah" onclick="return submit(1,50000,'mewah_slider_A','mewah_slider_B','button_slider_mewah', 'harga_real_mewa1')">Contest!<button>
+    </section>
+
+
+    <section>
+        <h1>Tiramisu</h1>
+        <img src="images/Slide7_Mewah2.jpg" width="320" />
+	      <h3 style="text-align: center;">Rp.70.000</h3>
+    </section>
+
+
+
+
+    <section>
         <h1>Scoreboard</h1>
         <table style="width: 300px;">
           <tr>
@@ -216,7 +230,8 @@
             </td>
           </tr>
         </table>
-      </section>
+    </section>
+
     <script src="build/build.js"></script>
     <script src="score/score.js"></script>
   </body>
