@@ -27,6 +27,63 @@
         #price1{
           visibility: hidden;
         }
+
+       .slider_value{
+        	height: 40px;
+        	width: 70px;
+        	display: flex;
+        	align-items: center;
+        	justify-content: center;
+        	font-family: 'Poppins',sans-serif;
+        	font-weight: 600px;
+        	font-style: 20px;
+        	border-radius: 3px;
+        }
+
+        .slider_container{
+			width: 80vh;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+			padding: 0 15px;
+        }     
+
+        input[type="range"]{
+        	width: 85%;
+        	-webkit-appearance: none;
+        	height: 5px;
+        	position: relative;
+        	background-color: rgba(255,255,255,0)
+        	border-radius: 5px;
+        	outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb{
+        	-webkit-appearance:none;
+        	height: 25px;
+        	width: 25px;
+        	border-radius: 50%;
+        }
+
+        input[type="range"].player_A::-webkit-slider-thumb{
+        	background-color: #ffd901;
+        }
+        input[type="range"].player_B::-webkit-slider-thumb{
+        	background-color : #008000;
+        }
+
+        div.player_A{
+        	background-color : #ffd901;
+        }
+
+        div.player_B{
+        	background-color : #008000;
+        }
+
     </style>
     <link rel="stylesheet" type="text/css" href="build/build.css" />
   </head>
@@ -76,7 +133,41 @@
       <section>
         <h1>Burrata E Datterini</h1>
         <img src="images/Slide7_Mewah1.jpg" width="320"/>
-	      <h3 style="text-align: center">Rp.100.000</h3>
+	    <h3 style="text-align: center">Rp.100.000</h3>
+
+		<div>
+			<div class="slider_container">
+				<div class="player_A" style="display: inline;">Player A</div>
+				<input id="slider_mewah_A" class="player_A" type="range" min="0" max ="3000000" value="0" step="1000">
+				<div id="slider_mewah_value_A" class="slider_value player_A">0</div>
+			</div>
+			 <script>
+				var slider_mewah = document.getElementById("slider_mewah_A");
+				var number = document.getElementById("slider_mewah_value_A");
+
+				slider_mewah.oninput = function(){
+					number.innerHTML = slider_mewah.value;
+				}
+			</script>
+		</div>
+		
+
+		<div>
+			<div class="slider_container">
+				<div class="player_B" style="display: inline;">Player B</div>
+				<input id="slider_mewah_B" class="player_B" type="range" min="0" max ="3000000" value="0" step="1000">
+				<div id="slider_mewah_value_B" class="slider_value player_B">0</div>
+			</div>
+		    <script>
+				var slider_mewah = document.getElementById("slider_mewah_B");
+				var number = document.getElementById("slider_mewah_value_B");
+
+				slider_mewah.oninput = function(){
+					number.innerHTML = slider_mewah.value;
+				}
+			</script>
+		</div>
+		
       </section>
 
       <section>
