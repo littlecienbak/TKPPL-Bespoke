@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -89,7 +89,10 @@
           background-color: #aaa; 
           padding: 5px;
         }
-
+        .tebak{
+          display: inline-block;
+          
+        }
     </style>
     <link rel="stylesheet" type="text/css" href="build/build.css" />
   </head>
@@ -171,7 +174,21 @@
     <section>
     	<h1>Yakult</h1>
         <img src="images/tkppl_minuman2.png" width="320" />
+        <p>
+          Rp.6000
+        </p>
+        <p style="margin-bottom: 0;">Team A</p>
+        <div>
+        <button class="tebak" onclick="return tebak('A','rendah')">Rendah</button>
+        <button class="tebak" onclick="return tebak('A','tinggi')">Tinggi</button>
+        </div>
+        <p style="margin-bottom: 0;">Team B</p>
+        <div>
+        <button class="tebak" onclick="return tebak('B','rendah')">Rendah</button>
+        <button class="tebak" onclick="return tebak('B','tinggi')">Tinggi</button>
+      </div>
         <h3 style="text-align: center;">Rp.8.000</h3>
+        <button id="button_tebak_minuman" onclick="return submit(8000,6000)">Contest!</button>
     </section>
 
 
@@ -201,7 +218,7 @@
         </div>
         
         <p id="harga_real_mewah1"></p>
-        <button id="button_slider_mewah" onclick="return submit(1,50000,'mewah_slider_A','mewah_slider_B','button_slider_mewah', 'harga_real_mewa1')">Contest!<button>
+        <button id="button_slider_mewah" onclick="return submit(1,50000,'mewah_slider_A','mewah_slider_B','button_slider_mewah', 'harga_real_mewa1')">Contest!</button>
     </section>
 
 
