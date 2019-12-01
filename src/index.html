@@ -1,34 +1,12 @@
 ﻿<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
-    <title>TKPPL-Bespoke</title>
-    <style>
-        #progressbar {
-          height:1.2em;
-        }
-        #progressbar div{
-          text-align: center;
-          height: 100%;
-          width:50%;
-          float: left;
-          visibility: hidden;
-        }
-        #progressbar p,button{
-          text-align: center;
-        }
-        #progress1A{
-          width:25%;
-        }
-        #price1{
-          visibility: hidden;
-        }
 
-/*       .slider_value{
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>TKPPL-Bespoke</title>
+  <style>
+    /*       .slider_value{
         	height: 40px;
         	width: 70px;
         	display: flex;
@@ -85,171 +63,181 @@
         }
 */
 
-        .nilaiAwal{
-          background-color: #aaa; 
-          padding: 5px;
-        }
-        .tebak{
-          display: inline-block;
-          
-        }
-    </style>
-    <link rel="stylesheet" type="text/css" href="build/build.css" />
-  </head>
+    .nilaiAwal {
+      background-color: #aaa;
+      padding: 5px;
+    }
 
-  <body>
-    <article class="deck">
-	<section style="background-image: url(images/tkppl_cover.jpg);">
-	 	<img width="100%" height="100%" src="images/tkppl_cover.jpg" />
-	 	</section>
+    .tebak {
+      display: inline-block;
 
-	<section>
-		<img width="100%" height="100%" src="images/Slide1_Intro Image.png" />
-	</section>
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="build/build.css" />
+</head>
 
-    <section>
-    	<h1>Tango</h1>
-        <img src="images/tango.png" width="200" />
-        <table style="width: 300px;">
-          <tr>
-            <td align="center">A</td>
-            <td align="center">B</td>
-          </tr>
-          <tr>
-            <td align="center">
-              <input id="input1A" style="width: 100px;text-align: center;" type="number" />
-            </td>
-            <td align="center">
-              <input id="input1B" style="width: 100px;text-align: center;" type="number"/>
-            </td>
-          </tr>
-        </table>
-        <div style="width:400px" id="progressbar">
-          <p id="price1"></p>
-          <div id="progress1A" style="background-color: rgb(53, 255, 255);">
-          </div>
-          <div id="progress1B" style="background-color: rgb(255, 109, 109);">
-          </div>
-        </div>
-        <button id="button1" onclick="return submit(1,12900,'input1A','input1B',1)">Contest!</button>
+<body>
+  <article class="deck">
+    <section style="background-image: url(images/tkppl_cover.jpg);">
+      <img width="100%" height="100%" src="images/tkppl_cover.jpg" />
     </section>
 
-
-
-
     <section>
-    	<h1>Tricks</h1>
-    	<img src="images/tricks.jpg" width="320" />
+      <img width="100%" height="100%" src="images/Slide1_Intro Image.png" />
     </section>
 
-
-	<section>
-        <h1>Aqua Galon</h1>
-        <img src="images/tkppl_minuman1.png" width="320"  height="175"/>
-        <p style="margin-bottom: 0;">
-        	Team A : <span id="nilai_sliderMinuman_A">0</span></p>
-        <div>
-          <span class="nilaiAwal">20.000</span>
-            <div class="slidercontainer" style="display: inline-block;">
-                <input id="minuman_slider_A" type="range" min="20000" max="75000" value="0" class="slider" step="1000">
-            </div>
-          <span class="nilaiAwal">75.000</span>
+    <section>
+      <h1>Tango</h1>
+      <img src="images/tkppl_snack1.png" width="200" />
+      <p style="margin-bottom: 0;">
+        Team A : <span id="nilai_sliderSnack_A">0</span></p>
+      <div>
+        <span class="nilaiAwal">1.000</span>
+        <div class="slidercontainer" style="display: inline-block;">
+          <input id="snack_slider_A" type="range" min="1000" max="50000" value="0" class="slider" step="1000">
         </div>
+        <span class="nilaiAwal">50.000</span>
+      </div>
 
-        <p style="margin-bottom: 0;">
-        	Team B : <span id="nilai_sliderMinuman_B">0</span></p>
-        <div>
-          <span class="nilaiAwal">20.000</span>
-            <div class="slidercontainer" style="display: inline-block;">
-                <input id="minuman_slider_B" type="range" min="20000" max="75000" value="0" class="slider" step="1000">
-            </div>
-          <span class="nilaiAwal">75.000</span>
+      <p style="margin-bottom: 0;">
+        Team B : <span id="nilai_sliderSnack_B">0</span></p>
+      <div>
+        <span class="nilaiAwal">1.000</span>
+        <div class="slidercontainer" style="display: inline-block;">
+          <input id="snack_slider_B" type="range" min="1000" max="50000" value="0" class="slider" step="1000">
         </div>
-        
-        <p id="harga_real_minuman1"></p>
-        <button id="button_slider_minuman" onclick="return submit(1,50000,'minuman_slider_A','minuman_slider_B','button_slider_minuman','harga_real_minuman1')">Contest!</button>        
+        <span class="nilaiAwal">50.000</span>
+      </div>
+
+      <p id="harga_real_snack1"></p>
+      <button id="button_slider_snack" onclick="return submitSlider(12900,'snack_slider_A','snack_slider_B','button_slider_snack','harga_real_snack1')">Contest!
+      </button>
     </section>
 
-
     <section>
-    	<h1>Yakult</h1>
-        <img src="images/tkppl_minuman2.png" width="320" />
-        <p>
-          Rp.6000
-        </p>
-        <p style="margin-bottom: 0;">Team A</p>
-        <div>
+      <h1>Indomie</h1>
+      <img src="images/tkppl_snack2.jpg" width="200" />
+      <p>Rp. 3.250,-</p>
+      <p style="margin-bottom: 0;">Team A</p>
+      <div>
         <button class="tebak" onclick="return tebak('A','rendah')">Rendah</button>
         <button class="tebak" onclick="return tebak('A','tinggi')">Tinggi</button>
-        </div>
-        <p style="margin-bottom: 0;">Team B</p>
-        <div>
+      </div>
+      <p style="margin-bottom: 0;">Team B</p>
+      <div>
         <button class="tebak" onclick="return tebak('B','rendah')">Rendah</button>
         <button class="tebak" onclick="return tebak('B','tinggi')">Tinggi</button>
       </div>
-        <h3 style="text-align: center;">Rp.8.000</h3>
-        <button id="button_tebak_minuman" onclick="return submit(8000,6000)">Contest!</button>
+      <button onclick="return submitTebak(3500,3250)">Contest!</button>
     </section>
 
-
     <section>
-        <h1>Burrata E Datterini</h1>
-        <img src="images/Slide7_Mewah1.jpg" width="320"/>
-
-        <p style="margin-bottom: 0;"> 
-         	Team A : <span id="nilai_sliderMewah_A">0</span>
-      	</p>
-        <div>
-          <span class="nilaiAwal">50.000</span>
-            <div class="slidercontainer" style="display: inline-block;">
-                <input id="mewah_slider_A" type="range" min="50000" max="500000" value="0" class="slider" step="5000">
-            </div>
-          <span class="nilaiAwal">500.000</span>
+      <h1>Aqua Galon</h1>
+      <img src="images/tkppl_minuman1.png" width="320" height="175" />
+      <p style="margin-bottom: 0;">
+        Team A : <span id="nilai_sliderMinuman_A">0</span></p>
+      <div>
+        <span class="nilaiAwal">20.000</span>
+        <div class="slidercontainer" style="display: inline-block;">
+          <input id="minuman_slider_A" type="range" min="20000" max="75000" value="0" class="slider" step="1000">
         </div>
+        <span class="nilaiAwal">75.000</span>
+      </div>
 
-        <p style="margin-bottom: 0;">
-        	Team B : <span id="nilai_sliderMewah_B">0</span></p>
-        <div>
-          <span class="nilaiAwal">50.000</span>
-            <div class="slidercontainer" style="display: inline-block;">
-                <input id="mewah_slider_B" type="range" min="50000" max="500000" value="0" class="slider" step="5000">
-            </div>
-          <span class="nilaiAwal">500.000</span>
+      <p style="margin-bottom: 0;">
+        Team B : <span id="nilai_sliderMinuman_B">0</span></p>
+      <div>
+        <span class="nilaiAwal">20.000</span>
+        <div class="slidercontainer" style="display: inline-block;">
+          <input id="minuman_slider_B" type="range" min="20000" max="75000" value="0" class="slider" step="1000">
         </div>
-        
-        <p id="harga_real_mewah1"></p>
-        <button id="button_slider_mewah" onclick="return submit(1,50000,'mewah_slider_A','mewah_slider_B','button_slider_mewah', 'harga_real_mewa1')">Contest!</button>
+        <span class="nilaiAwal">75.000</span>
+      </div>
+
+      <p id="harga_real_minuman1"></p>
+      <button id="button_slider_minuman"
+        onclick="return submitSlider(50000,'minuman_slider_A','minuman_slider_B','button_slider_minuman','harga_real_minuman1')">Contest!</button>
     </section>
 
 
     <section>
-        <h1>Tiramisu</h1>
-        <img src="images/Slide7_Mewah2.jpg" width="320" />
-	      <h3 style="text-align: center;">Rp.70.000</h3>
+      <h1>Yakult</h1>
+      <img src="images/tkppl_minuman2.png" width="320" />
+      <p>
+        Rp.6000
+      </p>
+      <p style="margin-bottom: 0;">Team A</p>
+      <div>
+        <button class="tebak" onclick="return tebak('A','rendah')">Rendah</button>
+        <button class="tebak" onclick="return tebak('A','tinggi')">Tinggi</button>
+      </div>
+      <p style="margin-bottom: 0;">Team B</p>
+      <div>
+        <button class="tebak" onclick="return tebak('B','rendah')">Rendah</button>
+        <button class="tebak" onclick="return tebak('B','tinggi')">Tinggi</button>
+      </div>
+      <h3 style="text-align: center;">Rp.8.000</h3>
+      <button onclick="return submitTebak(8000,6000)">Contest!</button>
     </section>
 
 
+    <section>
+      <h1>Burrata E Datterini</h1>
+      <img src="images/Slide7_Mewah1.jpg" width="320" />
+
+      <p style="margin-bottom: 0;">
+        Team A : <span id="nilai_sliderMewah_A">0</span>
+      </p>
+      <div>
+        <span class="nilaiAwal">50.000</span>
+        <div class="slidercontainer" style="display: inline-block;">
+          <input id="mewah_slider_A" type="range" min="50000" max="500000" value="0" class="slider" step="5000">
+        </div>
+        <span class="nilaiAwal">500.000</span>
+      </div>
+
+      <p style="margin-bottom: 0;">
+        Team B : <span id="nilai_sliderMewah_B">0</span></p>
+      <div>
+        <span class="nilaiAwal">50.000</span>
+        <div class="slidercontainer" style="display: inline-block;">
+          <input id="mewah_slider_B" type="range" min="50000" max="500000" value="0" class="slider" step="5000">
+        </div>
+        <span class="nilaiAwal">500.000</span>
+      </div>
+
+      <p id="harga_real_mewah1"></p>
+      <button id="button_slider_mewah"
+        onclick="return submitSlider(50000,'mewah_slider_A','mewah_slider_B','button_slider_mewah', 'harga_real_mewa1')">Contest!</button>
+    </section>
 
 
     <section>
-        <h1>Scoreboard</h1>
-        <table style="width: 300px;">
-          <tr>
-            <td align="center">A</td>
-            <td align="center">B</td>
-          </tr>
-          <tr>
-            <td align="center">
-                <p id="scoreA"></p>
-            </td>
-            <td align="center">
-                <p id="scoreB"></p>
-            </td>
-          </tr>
-        </table>
+      <h1>Tiramisu</h1>
+      <img src="images/Slide7_Mewah2.jpg" width="320" />
+      <h3 style="text-align: center;">Rp.70.000</h3>
+    </section>
+
+    <section>
+      <h1>Scoreboard</h1>
+      <table style="width: 300px;">
+        <tr>
+          <td align="center">A</td>
+          <td align="center">B</td>
+        </tr>
+        <tr>
+          <td align="center">
+            <p id="scoreA"></p>
+          </td>
+          <td align="center">
+            <p id="scoreB"></p>
+          </td>
+        </tr>
+      </table>
     </section>
 
     <script src="build/build.js"></script>
     <script src="score/score.js"></script>
-  </body>
+</body>
+
 </html>
