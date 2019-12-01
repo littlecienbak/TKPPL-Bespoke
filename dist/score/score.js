@@ -120,3 +120,27 @@ function tebak(team, coba) {
     }
   }
 }
+
+function submitTebakBesarKecil(harga_real, harga_perkiraan, pilihanA, pilihanB) {
+  var pilihan_playerA = getRadioButtonValue(pilihanA)
+  var pilihan_playerB = getRadioButtonValue(pilihanB)
+
+  if( (harga_real>harga_perkiraan && pilihanA=="rendah") || (harga_real<harga_perkiraan && pilihanA=="tinggi") ){
+    //tebakan salah
+    scoreA+= Math.abs(harga_real-harga_perkiraan)
+  }
+
+  if( (harga_real>harga_perkiraan && pilihanB=="rendah") || (harga_real<harga_perkiraan && pilihanB=="tinggi") ){
+    //tebakan salah
+    scoreB+= Math.abs(harga_real-harga_perkiraan)
+  }    
+}
+
+function getRadioButtonValue(rdButton) {
+  for (var i = 0, length = rdButton.length; i < length; i++) {
+  if (radios[i].checked) {
+      return radios[i].value;
+    }
+  }
+  break;
+}
