@@ -102,20 +102,28 @@ function submitTebak(harga, perkiraan) {
   console.log(scoreB);
 }
 
-function tebak(team, coba) {
+function tebak(team, coba,_this,buttonsebelah) {
   if (team == "A") {
     if (coba == "rendah") {
+      _this.style.backgroundColor ="Green";
+      document.getElementById(buttonsebelah).style.backgroundColor = "white";
       tebakA = 0
     }
     else {
+      _this.style.backgroundColor ="Green";
+      document.getElementById(buttonsebelah).style.backgroundColor = "white";
       tebakA = 1
     }
   }
   else {
     if (coba == "rendah") {
+      _this.style.backgroundColor ="Green";
+      document.getElementById(buttonsebelah).style.backgroundColor = "white";
       tebakB = 0
     }
     else {
+      _this.style.backgroundColor ="Green";
+      document.getElementById(buttonsebelah).style.backgroundColor = "white";
       tebakB = 1
     }
   }
@@ -141,6 +149,6 @@ function getRadioButtonValue(rdButton) {
   if (radios[i].checked) {
       return radios[i].value;
     }
+    break;
   }
-  break;
 }

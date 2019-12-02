@@ -6,72 +6,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>TKPPL-Bespoke</title>
   <style>
-    /*       .slider_value{
-        	height: 40px;
-        	width: 70px;
-        	display: flex;
-        	align-items: center;
-        	justify-content: center;
-        	font-family: 'Poppins',sans-serif;
-        	font-weight: 600px;
-        	font-style: 20px;
-        	border-radius: 3px;
-        }
-
-        .slider_container{
-			width: 80vh;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%,-50%);
-			display: flex;
-			align-items: center;
-			justify-content: space-around;
-			padding: 0 15px;
-        }     
-
-        input[type="range"]{
-        	width: 85%;
-        	-webkit-appearance: none;
-        	height: 5px;
-        	position: relative;
-        	background-color: rgba(255,255,255,0);
-        	border-radius: 5px;
-        	outline: none;
-        }
-
-        input[type="range"]::-webkit-slider-thumb{
-        	-webkit-appearance:none;
-        	height: 25px;
-        	width: 25px;
-        	border-radius: 50%;
-        }
-
-        input[type="range"].player_A::-webkit-slider-thumb{
-        	background-color: #ffd901;
-        }
-        input[type="range"].player_B::-webkit-slider-thumb{
-        	background-color : #008000;
-        }
-
-        div.player_A{
-        	background-color : #ffd901;
-        }
-
-        div.player_B{
-        	background-color : #008000;
-        }
-*/
-
     .nilaiAwal {
-      background-color: #aaa;
-      padding: 5px;
+    	background-color: #aaa;
+    	padding: 5px;
     }
 
     .tebak {
-      display: inline-block;
+    	display: inline-block;
 
     }
+
+
+	<!--Untuk radio button-->
+    .tebak_harga {
+    	list-style-type: none;
+   		margin: 25px 0 0 0;
+   		padding: 0;
+   	}
+
+   	.tebak_harga li {
+   		float: left;
+   		margin: 0 5px 0 0;
+   		width: 100px;
+   		height: 40px;
+   		position: relative;
+   	}
+
+   	.tebak_harga label, .tebak_harga input {
+   		display: block;
+   		position: absolute;
+   		top: 0;
+   		left: 0;
+   		right: 0;
+   		bottom: 0;
+   	}
+
+   	.tebak_harga input[type="radio"] {
+   		opacity: 0.01;
+   		z-index: 100;
+   	}
+
+	.tebak_harga input[type="radio"]:checked+label, .Checked+label {
+		background: yellow;
+	}
+
+	.tebak_harga label {
+		padding: 5px;
+		border: 1px solid #CCC;
+		cursor: pointer;
+		z-index: 90;
+	}
+
+	.tebak_harga label:hover {
+		background: #DDD;
+	}
+
   </style>
   <link rel="stylesheet" type="text/css" href="build/build.css" />
 </head>
@@ -168,13 +157,13 @@
       </p>
       <p style="margin-bottom: 0;">Team A</p>
       <div>
-        <button class="tebak" onclick="return tebak('A','rendah')">Rendah</button>
-        <button class="tebak" onclick="return tebak('A','tinggi')">Tinggi</button>
+        <button id="rendahminumA" class="tebak" onclick="return tebak('A','rendah',this,'tinggiminumA')">Rendah</button>
+        <button id="tinggiminumA"class="tebak" onclick="return tebak('A','tinggi',this,'rendahminumA')">Tinggi</button>
       </div>
       <p style="margin-bottom: 0;">Team B</p>
       <div>
-        <button class="tebak" onclick="return tebak('B','rendah')">Rendah</button>
-        <button class="tebak" onclick="return tebak('B','tinggi')">Tinggi</button>
+        <button id="rendahminumB" class="tebak" onclick="return tebak('B','rendah',this,'tinggiminumB')">Rendah</button>
+        <button id="tinggiminumB" onclick="return tebak('B','tinggi',this,'rendahminumB')">Tinggi</button>
       </div>
       <h3 style="text-align: center;">Rp.8.000</h3>
       <button onclick="return submitTebak(8000,6000)">Contest!</button>
@@ -215,7 +204,33 @@
     <section>
       <h1>Tiramisu</h1>
       <img src="images/Slide7_Mewah2.jpg" width="320" />
-      <h3 style="text-align: center;">Rp.70.000</h3>
+      <p>Rp. 70.000,-</p>
+
+      <p style="margin-bottom: 0;">Team A</p>
+	  <ul class="tebak_harga">
+	  	<li>
+	  		<input type="radio" id="rdbtn_mewah_playerA_rendah" name="rdbtn_mewah_playerA" value="rendah" checked="checked"/>
+	  		<label for="rdbtn_mewah_playerA_rendah">Lebih Kecil</label>
+	  	</li>
+	  	<li>
+	  		<input type="radio" id="rdbtn_mewah_playerA_tinggi" name="rdbtn_mewah_playerA" value="tinggi" />
+	  		<label for="rdbtn_mewah_playerA_tinggi">Lebih Besar</label>
+	  	</li>
+	  </ul>
+    
+      <p style="margin-bottom: 0;">Team B</p>
+      <ul class="tebak_harga">
+	  	<li>
+	  		<input type="radio" id="rdbtn_mewah_playerB_rendah" name="rdbtn_mewah_playerB" value="rendah" checked="checked" />
+	  		<label for="rdbtn_mewah_playerB_rendah">Lebih Kecil</label>
+	  	</li>
+	  	<li>
+	  		<input type="radio" id="rdbtn_mewah_playerB_tinggi" name="rdbtn_mewah_playerB" value="tinggi"/>
+	  		<label for="rdbtn_mewah_playerB_tinggi">Lebih Besar</label>
+	  	</li>
+	  </ul>
+      
+      <button onclick="return submitTebakBesarKecil(95000,70000,'rdbtn_mewah_playerA','rdbtn_mewah_playerB')">Contest!</button>
     </section>
 
     <section>

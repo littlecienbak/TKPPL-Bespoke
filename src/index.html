@@ -157,13 +157,13 @@
       </p>
       <p style="margin-bottom: 0;">Team A</p>
       <div>
-        <button class="tebak" onclick="return tebak('A','rendah')">Rendah</button>
-        <button class="tebak" onclick="return tebak('A','tinggi')">Tinggi</button>
+        <button id="rendahminumA" class="tebak" onclick="return tebak('A','rendah',this,'tinggiminumA')">Rendah</button>
+        <button id="tinggiminumA"class="tebak" onclick="return tebak('A','tinggi',this,'rendahminumA')">Tinggi</button>
       </div>
       <p style="margin-bottom: 0;">Team B</p>
       <div>
-        <button class="tebak" onclick="return tebak('B','rendah')">Rendah</button>
-        <button class="tebak" onclick="return tebak('B','tinggi')">Tinggi</button>
+        <button id="rendahminumB" class="tebak" onclick="return tebak('B','rendah',this,'tinggiminumB')">Rendah</button>
+        <button id="tinggiminumB" onclick="return tebak('B','tinggi',this,'rendahminumB')">Tinggi</button>
       </div>
       <h3 style="text-align: center;">Rp.8.000</h3>
       <button onclick="return submitTebak(8000,6000)">Contest!</button>
