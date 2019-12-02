@@ -1,9 +1,10 @@
-var scoreA = 0;
-var scoreB = 0;
+var listMakanan = ["Tango", "Indomie", "Aqua Galon", "Yakult", "Burrata E Datterini", "Tiramisu"]
+var scoreA = [];
+var scoreB = [];
+var totalA = 0;
+var totalB = 0;
 var tebakA = 0;
 var tebakB = 0;
-//var harga1 = 12900;
-//var harga2 = 50000;
 
 //Untuk menampilkan nilai yang dipilih oleh slider masing-masing slide
 var slider_snack_A = document.getElementById("snack_slider_A");
@@ -55,100 +56,106 @@ function submitSlider(harga_item, tebakan_A, tebakan_B, nama_button, nama_text_h
   var selisihA = Math.abs(tebakanA - harga_item);
   var selisihB = Math.abs(tebakanB - harga_item);
 
-  scoreA += selisihA
-  scoreB += selisihB
+  scoreA.push(selisihA)
+  scoreB.push(selisihB)
+  totalA += selisihA
+  totalB += selisihB
   document.getElementById(nama_text_harga).innerHTML = "Real Price : " + harga_item;
   document.getElementById(nama_text_harga).style.visibility = "visible";
   document.getElementById(nama_button).style.visibility = "hidden";
 
-  /*
-      if (selisihA < selisihB) {
-        scoreA += 1;
-      } else if (selisihA > selisihB) {
-        scoreB += 1;
-      }
-      
-      var persenA = parseFloat(inputA / (inputA + inputB)) * 100;
-      var persenB = parseFloat(inputB / (inputA + inputB)) * 100;
-  
-      document.getElementById("scoreA").innerHTML = scoreA;
-      document.getElementById("scoreB").innerHTML = scoreB;
-      document.getElementById("progress1A").innerHTML = persenA.toFixed(2);
-      document.getElementById("progress1B").innerHTML = persenB.toFixed(2);
-  
-      document.getElementById("progress1A").style.width =
-        persenA.toString() + "%";
-      document.getElementById("progress1B").style.width =
-        persenB.toString() + "%";
-      document.getElementById("progress1A").style.visibility = "visible";
-      document.getElementById("progress1B").style.visibility = "visible";
-  */
 }
 
-function submitTebak(harga, perkiraan) {
+function submitTebak(harga, perkiraan, lastpage) {
+  var selisih = harga - perkiraan
   if (tebakA == 0 && perkiraan < harga) {
-    scoreA += 1
+    scoreA.push(selisih)
+    totalA += Math.abs(selisih)
+    console.log(totalA)
+    console.log(totalB)
   }
   else if (tebakA == 1 && perkiraan > harga) {
-    scoreA += 1
+    scoreA.push(selisih)
+    totalA += Math.abs(selisih)
+    console.log(totalA)
+    console.log(totalB)
   }
   if (tebakB == 0 && perkiraan < harga) {
-    scoreB += 1
+    scoreB.push(selisih)
+    totalB += Math.abs(selisih)
+    console.log(totalA)
+    console.log(totalB)
   }
   else if (tebakB == 1 && perkiraan > harga) {
-    scoreB += 1
+    scoreB.push(selisih)
+    totalB += Math.abs(selisih)
+    console.log(totalA)
+    console.log(totalB)
   }
-  console.log(scoreA);
-  console.log(scoreB);
+  if (lastpage === true) {
+    for (var i = 0; i < listMakanan.length; i++) {
+      var tr1 = document.createElement("tr");
+      tr1.innerHTML = "<td colspan=\"2\">" + listMakanan[i] + "</td>";
+      document.getElementById("scoreboard").appendChild(tr1);
+      var tr2 = document.createElement("tr");
+      tr2.innerHTML = "<td>" + scoreA[i] + "</td>" + "<td>" + scoreB[i] + "</td>";
+      document.getElementById("scoreboard").appendChild(tr2);
+    }
+    var tr3 = document.createElement("tr");
+    tr3.innerHTML = "<td colspan=\"2\">" + "Total Meleset" + "</td>";
+    document.getElementById("scoreboard").appendChild(tr3);
+    var tr4 = document.createElement("tr");
+    tr4.innerHTML = "<td>" + totalA + "</td>" + "<td>" + totalB + "</td>";
+    document.getElementById("scoreboard").appendChild(tr4);
+  }
 }
 
-function tebak(team, coba,_this,buttonsebelah) {
+function tebak(team, coba, _this, buttonsebelah) {
   if (team == "A") {
     if (coba == "rendah") {
-      _this.style.backgroundColor ="Green";
+      _this.style.backgroundColor = "Green";
       document.getElementById(buttonsebelah).style.backgroundColor = "white";
       tebakA = 0
     }
     else {
-      _this.style.backgroundColor ="Green";
+      _this.style.backgroundColor = "Green";
       document.getElementById(buttonsebelah).style.backgroundColor = "white";
       tebakA = 1
     }
-  }
-  else {
+  } else {
     if (coba == "rendah") {
-      _this.style.backgroundColor ="Green";
+      _this.style.backgroundColor = "Green";
       document.getElementById(buttonsebelah).style.backgroundColor = "white";
       tebakB = 0
     }
     else {
-      _this.style.backgroundColor ="Green";
+      _this.style.backgroundColor = "Green";
       document.getElementById(buttonsebelah).style.backgroundColor = "white";
       tebakB = 1
     }
   }
 }
 
-function submitTebakBesarKecil(harga_real, harga_perkiraan, pilihanA, pilihanB) {
-  var pilihan_playerA = getRadioButtonValue(pilihanA)
-  var pilihan_playerB = getRadioButtonValue(pilihanB)
+// function submitTebakBesarKecil(harga_real, harga_perkiraan, pilihanA, pilihanB) {
+//   var pilihan_playerA = getRadioButtonValue(pilihanA)
+//   var pilihan_playerB = getRadioButtonValue(pilihanB)
 
-  if( (harga_real>harga_perkiraan && pilihanA=="rendah") || (harga_real<harga_perkiraan && pilihanA=="tinggi") ){
-    //tebakan salah
-    scoreA+= Math.abs(harga_real-harga_perkiraan)
-  }
+//   if( (harga_real>harga_perkiraan && pilihanA=="rendah") || (harga_real<harga_perkiraan && pilihanA=="tinggi") ){
+//     //tebakan salah
+//     scoreA+= Math.abs(harga_real-harga_perkiraan)
+//   }
 
-  if( (harga_real>harga_perkiraan && pilihanB=="rendah") || (harga_real<harga_perkiraan && pilihanB=="tinggi") ){
-    //tebakan salah
-    scoreB+= Math.abs(harga_real-harga_perkiraan)
-  }    
-}
+//   if( (harga_real>harga_perkiraan && pilihanB=="rendah") || (harga_real<harga_perkiraan && pilihanB=="tinggi") ){
+//     //tebakan salah
+//     scoreB+= Math.abs(harga_real-harga_perkiraan)
+//   }    
+// }
 
-function getRadioButtonValue(rdButton) {
-  for (var i = 0, length = rdButton.length; i < length; i++) {
-  if (radios[i].checked) {
-      return radios[i].value;
-    }
-    break;
-  }
-}
+// function getRadioButtonValue(rdButton) {
+//   for (var i = 0, length = rdButton.length; i < length; i++) {
+//   if (radios[i].checked) {
+//       return radios[i].value;
+//     }
+//     break;
+//   }
+// }

@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>TKPPL-Bespoke</title>
   <style>
+    #scoreboard td{
+      text-align: center;
+    }
     .nilaiAwal {
     	background-color: #aaa;
     	padding: 5px;
@@ -109,15 +112,15 @@
       <p>Rp. 3.250,-</p>
       <p style="margin-bottom: 0;">Team A</p>
       <div>
-        <button class="tebak" onclick="return tebak('A','rendah')">Rendah</button>
-        <button class="tebak" onclick="return tebak('A','tinggi')">Tinggi</button>
+        <button id="rendahsnackA" class="tebak" onclick="return tebak('A','rendah',this,'tinggisnackA')">Rendah</button>
+        <button id="tinggisnackA" class="tebak" onclick="return tebak('A','tinggi',this,'rendahsnackA')">Tinggi</button>
       </div>
       <p style="margin-bottom: 0;">Team B</p>
       <div>
-        <button class="tebak" onclick="return tebak('B','rendah')">Rendah</button>
-        <button class="tebak" onclick="return tebak('B','tinggi')">Tinggi</button>
+        <button id="rendahsnackB" class="tebak" onclick="return tebak('B','rendah',this,'tinggisnackB')">Rendah</button>
+        <button id="tinggisnackB" class="tebak" onclick="return tebak('B','tinggi',this,'rendahsnackB')">Tinggi</button>
       </div>
-      <button onclick="return submitTebak(3500,3250)">Contest!</button>
+      <button onclick="return submitTebak(3500,3250,false)">Contest!</button>
     </section>
 
     <section>
@@ -166,7 +169,7 @@
         <button id="tinggiminumB" onclick="return tebak('B','tinggi',this,'rendahminumB')">Tinggi</button>
       </div>
       <h3 style="text-align: center;">Rp.8.000</h3>
-      <button onclick="return submitTebak(8000,6000)">Contest!</button>
+      <button onclick="return submitTebak(8000,6000,false)">Contest!</button>
     </section>
 
 
@@ -207,47 +210,27 @@
       <p>Rp. 70.000,-</p>
 
       <p style="margin-bottom: 0;">Team A</p>
-	  <ul class="tebak_harga">
-	  	<li>
-	  		<input type="radio" id="rdbtn_mewah_playerA_rendah" name="rdbtn_mewah_playerA" value="rendah" checked="checked"/>
-	  		<label for="rdbtn_mewah_playerA_rendah">Lebih Kecil</label>
-	  	</li>
-	  	<li>
-	  		<input type="radio" id="rdbtn_mewah_playerA_tinggi" name="rdbtn_mewah_playerA" value="tinggi" />
-	  		<label for="rdbtn_mewah_playerA_tinggi">Lebih Besar</label>
-	  	</li>
-	  </ul>
-    
+      <div>
+        <button id="rendahminumA" class="tebak" onclick="return tebak('A','rendah',this,'tinggiminumA')">Rendah</button>
+        <button id="tinggiminumA"class="tebak" onclick="return tebak('A','tinggi',this,'rendahminumA')">Tinggi</button>
+      </div>
       <p style="margin-bottom: 0;">Team B</p>
-      <ul class="tebak_harga">
-	  	<li>
-	  		<input type="radio" id="rdbtn_mewah_playerB_rendah" name="rdbtn_mewah_playerB" value="rendah" checked="checked" />
-	  		<label for="rdbtn_mewah_playerB_rendah">Lebih Kecil</label>
-	  	</li>
-	  	<li>
-	  		<input type="radio" id="rdbtn_mewah_playerB_tinggi" name="rdbtn_mewah_playerB" value="tinggi"/>
-	  		<label for="rdbtn_mewah_playerB_tinggi">Lebih Besar</label>
-	  	</li>
-	  </ul>
-      
-      <button onclick="return submitTebakBesarKecil(95000,70000,'rdbtn_mewah_playerA','rdbtn_mewah_playerB')">Contest!</button>
+      <div>
+        <button id="rendahminumB" class="tebak" onclick="return tebak('B','rendah',this,'tinggiminumB')">Rendah</button>
+        <button id="tinggiminumB" onclick="return tebak('B','tinggi',this,'rendahminumB')">Tinggi</button>
+      </div>
+      <button onclick="return submitTebak(95000,70000,true)">Contest!</button>
     </section>
 
     <section>
       <h1>Scoreboard</h1>
       <table style="width: 300px;">
-        <tr>
-          <td align="center">A</td>
-          <td align="center">B</td>
-        </tr>
-        <tr>
-          <td align="center">
-            <p id="scoreA"></p>
-          </td>
-          <td align="center">
-            <p id="scoreB"></p>
-          </td>
-        </tr>
+        <tbody id="scoreboard">
+          <tr>
+            <td align="center">A</td>
+            <td align="center">B</td>
+          </tr>
+        </tbody>
       </table>
     </section>
 
