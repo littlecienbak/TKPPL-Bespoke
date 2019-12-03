@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>TKPPL-Bespoke</title>
   <style>
+    td{
+      border: 3px black solid;
+    }
     #scoreboard td{
       text-align: center;
     }
@@ -16,7 +19,7 @@
 
     .tebak {
     	display: inline-block;
-
+      margin-bottom: 5px;
     }
 
 
@@ -82,7 +85,7 @@
       <h1>Tango</h1>
       <img src="images/tkppl_snack1.png" width="200" />
       <p style="margin-bottom: 0;">
-        Team A : <span id="nilai_sliderSnack_A">0</span></p>
+        Team A : <span id="nilai_sliderSnack_A">1000</span></p>
       <div>
         <span class="nilaiAwal">1.000</span>
         <div class="slidercontainer" style="display: inline-block;">
@@ -92,7 +95,7 @@
       </div>
 
       <p style="margin-bottom: 0;">
-        Team B : <span id="nilai_sliderSnack_B">0</span></p>
+        Team B : <span id="nilai_sliderSnack_B">1000</span></p>
       <div>
         <span class="nilaiAwal">1.000</span>
         <div class="slidercontainer" style="display: inline-block;">
@@ -120,14 +123,15 @@
         <button id="rendahsnackB" class="tebak" onclick="return tebak('B','rendah',this,'tinggisnackB')">Rendah</button>
         <button id="tinggisnackB" class="tebak" onclick="return tebak('B','tinggi',this,'rendahsnackB')">Tinggi</button>
       </div>
-      <button onclick="return submitTebak(3500,3250,false)">Contest!</button>
+      <p id="harga_real_snack2"></p>
+      <button onclick="return submitTebak(3500,3250,false,'harga_real_snack2' ,this)">Contest!</button>
     </section>
 
     <section>
       <h1>Aqua Galon</h1>
       <img src="images/tkppl_minuman1.png" width="320" height="175" />
       <p style="margin-bottom: 0;">
-        Team A : <span id="nilai_sliderMinuman_A">0</span></p>
+        Team A : <span id="nilai_sliderMinuman_A">20000</span></p>
       <div>
         <span class="nilaiAwal">20.000</span>
         <div class="slidercontainer" style="display: inline-block;">
@@ -137,7 +141,7 @@
       </div>
 
       <p style="margin-bottom: 0;">
-        Team B : <span id="nilai_sliderMinuman_B">0</span></p>
+        Team B : <span id="nilai_sliderMinuman_B">20000</span></p>
       <div>
         <span class="nilaiAwal">20.000</span>
         <div class="slidercontainer" style="display: inline-block;">
@@ -168,8 +172,8 @@
         <button id="rendahminumB" class="tebak" onclick="return tebak('B','rendah',this,'tinggiminumB')">Rendah</button>
         <button id="tinggiminumB" class="tebak" onclick="return tebak('B','tinggi',this,'rendahminumB')">Tinggi</button>
       </div>
-      <h3 style="text-align: center;">Rp.8.000</h3>
-      <button onclick="return submitTebak(8000,6000,false)">Contest!</button>
+      <p id="harga_real_minum2"></p>
+      <button onclick="return submitTebak(8000,6000,false,'harga_real_minum2' ,this)">Contest!</button>
     </section>
 
 
@@ -178,7 +182,7 @@
       <img src="images/Slide7_Mewah1.jpg" width="320" />
 
       <p style="margin-bottom: 0;">
-        Team A : <span id="nilai_sliderMewah_A">0</span>
+        Team A : <span id="nilai_sliderMewah_A">50000</span>
       </p>
       <div>
         <span class="nilaiAwal">50.000</span>
@@ -189,7 +193,7 @@
       </div>
 
       <p style="margin-bottom: 0;">
-        Team B : <span id="nilai_sliderMewah_B">0</span></p>
+        Team B : <span id="nilai_sliderMewah_B">50000</span></p>
       <div>
         <span class="nilaiAwal">50.000</span>
         <div class="slidercontainer" style="display: inline-block;">
@@ -199,8 +203,8 @@
       </div>
 
       <p id="harga_real_mewah1"></p>
-      <button id="button_slider_mewah"
-        onclick="return submitSlider(50000,'mewah_slider_A','mewah_slider_B','button_slider_mewah', 'harga_real_mewa1')">Contest!</button>
+        <button id="button_slider_mewah"
+        onclick="return submitSlider(50000,'mewah_slider_A','mewah_slider_B','button_slider_mewah','harga_real_mewah1')">Contest!</button>
     </section>
 
 
@@ -219,8 +223,9 @@
         <button id="rendahmewahB" class="tebak" onclick="return tebak('B','rendah',this,'tinggimewahB')">Rendah</button>
         <button id="tinggimewahB" class="tebak" onclick="return tebak('B','tinggi',this,'rendahmewahB')">Tinggi</button>
       </div>
-      <h3 style="text-align: center;">Rp.95.000</h3>
-      <button onclick="return submitTebak(95000,70000)">Contest!</button>
+      
+      <p id="harga_real_mewah2"></p>
+      <button onclick="return submitTebak(95000,70000,true,'harga_real_mewah2' ,this)">Contest!</button>
     </section>
 
     <section>

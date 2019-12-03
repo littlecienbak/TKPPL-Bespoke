@@ -66,28 +66,35 @@ function submitSlider(harga_item, tebakan_A, tebakan_B, nama_button, nama_text_h
 
 }
 
-function submitTebak(harga, perkiraan, lastpage) {
+function submitTebak(harga, perkiraan, lastpage,nama_text_harga,nama_button) {
+  document.getElementById(nama_text_harga).innerHTML = "Real Price : " + harga;
+  document.getElementById(nama_text_harga).style.visibility = "visible";
+  nama_button.style.visibility = "hidden";
   var selisih = harga - perkiraan
   if (tebakA == 0 && perkiraan < harga) {
     scoreA.push(selisih)
+    scoreB.push(0)
     totalA += Math.abs(selisih)
     console.log(totalA)
     console.log(totalB)
   }
   else if (tebakA == 1 && perkiraan > harga) {
     scoreA.push(selisih)
+    scoreB.push(0)
     totalA += Math.abs(selisih)
     console.log(totalA)
     console.log(totalB)
   }
   if (tebakB == 0 && perkiraan < harga) {
     scoreB.push(selisih)
+    scoreA.push(0)
     totalB += Math.abs(selisih)
     console.log(totalA)
     console.log(totalB)
   }
   else if (tebakB == 1 && perkiraan > harga) {
     scoreB.push(selisih)
+    scoreA.push(0)
     totalB += Math.abs(selisih)
     console.log(totalA)
     console.log(totalB)
