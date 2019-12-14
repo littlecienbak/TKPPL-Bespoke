@@ -112,7 +112,16 @@ function submitTebak(harga, perkiraan, lastpage,nama_text_harga,nama_button) {
     tr3.innerHTML = "<td colspan=\"2\">" + "Total Meleset" + "</td>";
     document.getElementById("scoreboard").appendChild(tr3);
     var tr4 = document.createElement("tr");
-    tr4.innerHTML = "<td>" + totalA + "</td>" + "<td>" + totalB + "</td>";
+    if(totalA > totalB)
+    {
+      tr4.innerHTML = "<td style='background-color: red;'>" + totalA + "</td>" + "<td  style='background-color: Green;'>" + totalB + "</td>";
+    }
+    else if(totalA<totalB)
+    {
+      tr4.innerHTML = "<td style='background-color: green;'>" + totalA + "</td>" + "<td  style='background-color: red;'>" + totalB + "</td>";
+    }
+    else
+      tr4.innerHTML = "<td>" + totalA + "</td>" + "<td>" + totalB + "</td>";
     document.getElementById("scoreboard").appendChild(tr4);
   }
 }
